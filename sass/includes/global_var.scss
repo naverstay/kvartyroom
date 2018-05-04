@@ -35,6 +35,12 @@ $default_t_color: #464646;
 $placeholder_color: #9f9f9f;
 $clr_orange: #f66036;
 
+$firm-colors: (
+    _econom: $clr_orange,
+    _comfort: #586ef2,
+    _elite: #00cbac
+);
+
 @mixin opacity($val : 1, $important : 0) {
   @if $important == 0 {
     opacity: $val;

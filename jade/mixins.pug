@@ -1,4 +1,7 @@
 - var prod = false;
+- var map_tags = ['Новостройки Новой Москвы', 'Жилые комплексы Эконом-Класса', 'Новостройки в Домодедово', 'Новостройки в Железнодорожном', 'Студии в Московской области', '2-комнатные квартиры в Мытищах'];
+- var map_filter = ['Эконом-класс', 'Комфорт', 'Элитный', 'Посмотреть все'];
+- var map_filter_clr = ['_econom', '_comfort', '_elite', '_all reset'];
 
 mixin dev_head(page_title)
     head
@@ -26,6 +29,9 @@ mixin header()
                 a.logo(href='#')
                     img(src='i/logo.png')
 
+            a.mob_menu_btn.menuBtn(href='#')
+                span
+
             .main_menu_holder
                 ul.main_menu
                     li.menu_item
@@ -41,11 +47,92 @@ mixin header()
                         a.menu_link(href='#')
                             span.link_text Полезное
 
+mixin section_seo()
+    .section._bdr
+        .section_inner
+            .text_block
+                h2.section_title Квартирум
+
+                p "Квартирум" - это портал о новостройках Москвы и Московской области. Здесь вы найдете актуальную базу квартир с удобной навигацией. Предусмотрена сортировка квартир по району Москвы, населенному пункту Подмосковья и близости определенных станций метро. Кроме того, есть возможность выбора жилого комплекса или квартиры по заданным параметрам. Еще одна опция - поиск по наименованию застройщика, позволяющий выбрать компанию, которой вы больше всего доверяете. На сайте доступна актуальная и подробная информация о новостройках: новости и фото со строительных площадок жилых комплексов, стоимость и планировки квартир и апартаментов, данные о застройщиках и партнерах проектов, контакты и многое другое.
+
+                p Здесь вы найдете полезную информацию о квартирах в новостройках и рынке первичного жилья в целом. На портале публикуются новости, которые позволяют ознакомиться с последними новинками и событиями в данном сегменте. Аналитика рынка недвижимости региона поможет разобраться в тех или иных процессах, происходящих сейчас в этой сфере. С помощью актуальных аналитических данных вы сделаете правильный выбор локации в городе при покупке квартиры, а также найдете ответы на многие вопросы, в том числе - почему стоимость жилья в разных частях города может существенно различаться. Почерпнуть полезную информацию можно из интересных статей об особенностях покупки, проживания и обустройства квартиры в новостройке. В разделе "Инфографика" приведены графические материалы, предназначенные для наглядного ознакомления с особенностями новостроек.
+
+mixin section_news()
+    .section
+        .section_inner
+            ul.news_list
+                li
+                    .news_unit
+                        h3.section_title Новости
+                        a.news_img(href='#')
+                            img(src='i/newbe_1.jpg')
+
+                        .news_title: a.news_link(href='#') ГК «Гранель» передала ключи обманутым дольщикам ЖК «Квартал Лукино»
+                        p Корпус №1 ЖК «Новокрасково» получил разрешение на ввод в эксплуатацию
+                        p Ипотека по ставке от 5% в ЖК «Томилино»
+                        p
+                            a.more_link(href='#'): span Все новости
+                li
+                    .news_unit
+                        h3.section_title Аналитика
+                        a.news_img(href='#')
+                            img(src='i/newbe_1.jpg')
+
+                        .news_title: a.news_link(href='#') «Центр-2» - жизнь в центре событий
+                        p «Новогорск парк» - живите в окружении «зеленого моря»
+                        p Ипотека по ставке от 5% в ЖК «Томилино»
+                        p
+                            a.more_link(href='#'): span Все новости
+                li
+                    .news_unit
+                        h3.section_title Блог
+                        a.news_img(href='#')
+                            img(src='i/newbe_1.jpg')
+
+                        .news_title: a.news_link(href='#') ГК «Гранель» передала ключи обманутым дольщикам ЖК «Квартал Лукино»
+                        p Корпус №1 ЖК «Новокрасково» получил разрешение на ввод в эксплуатацию
+                        p Ипотека по ставке от 5% в ЖК «Томилино»
+                        p
+                            a.more_link(href='#'): span Все новости
+                li
+                    .news_unit
+                        h3.section_title Инфографика
+                        a.news_img(href='#')
+                            img(src='i/newbe_1.jpg')
+
+                        .news_title: a.news_link(href='#') «Центр-2» - жизнь в центре событий
+                        p Корпус №1 ЖК «Новокрасково» получил разрешение на ввод в эксплуатацию
+                        p Ипотека по ставке от 5% в ЖК «Томилино»
+                        p
+                            a.more_link(href='#'): span Все новости
+
+
+mixin section_map()
+    .section._map
+        #ymap.map_block
+    .section._map_filter
+        .section_inner.clearfix
+            a.wide_map_link(href='#')
+                span Смотреть на большой карте
+
+            .filter_block
+                span._let_-025 10 новостроек на карте
+                ul.map_tags_list._filter
+                    each tag, ind in map_filter
+                        li
+                            a.map_tag.btn_v2.btn_white_bdr._fz_13.filterBtn._active(href='#' class= map_filter_clr[ind] )= tag
+
+    .section._map_tags
+        .section_inner
+            ul.map_tags_list
+                each tag in map_tags
+                    li
+                        a.map_tag.btn_v2.btn_white(href='#')= tag
 
 mixin section_newbe()
     .section._gray
         .section_inner
-            h2.section_title Новостройки
+            h2.section_title.text_center Новостройки
 
             ul.flat_list
                 +loop_while(2)
@@ -111,7 +198,7 @@ mixin section_newbe()
 mixin section_best()
     .section._gray
         .section_inner
-            h2.section_title Лучшие квартиры
+            h2.section_title.text_center Лучшие квартиры
 
             ul.flat_list
                 li
@@ -230,10 +317,11 @@ mixin main_slider()
 
                 .slide_search_form.clearfix
                     form(action='#')
-                        button.btn_v1.btn_red.search_btn
-                            span найти
                         .input_w
                             input.input_v1(placeholder='Введите название комплекса, компанию, город или район')
+
+                        button.btn_v1.btn_red.search_btn
+                            span найти
 
                 .slide_info_holder: .slide_info
                     p._fz_24._ff_mn #[a._link(href='#') #[span Дома возведены. Ключи в день сделки!]]
@@ -246,10 +334,43 @@ mixin main_slider()
 mixin footer()
     .footer
         .section_inner
+            .footer_menu_holder
+                .footer_col
+                    .footer_caption Квартиры
+                    ul.footer_menu
+                        li: a.footer_link(href='#') Квартиры в Москве
+                        li: a.footer_link(href='#') Квартиры до 1,5 млн руб
+                        li: a.footer_link(href='#') Недорогие аппартаменты
+                        li: a.footer_link(href='#') Квартиры и новостройки в городах
+
+                .footer_col
+                    .footer_caption Новостройки
+                    ul.footer_menu
+                        li: a.footer_link(href='#') Жилые комплексы в Новой Москве
+                        li: a.footer_link(href='#') Новостройки эконом-класса
+                        li: a.footer_link(href='#') Жилые комплексы Балашихи
+
+                .footer_col.info_col
+                    .footer_caption Полезная информация
+                    ul.footer_menu
+                        li: a.footer_link(href='#') Новости недвижимости
+                        li: a.footer_link(href='#') Аналитика
+                        li: a.footer_link(href='#') Блог
+                        li: a.footer_link(href='#') Инфографика
+
+                .footer_col.action_col
+                    a.footer_action.i-vk(href='#')
+                    a.footer_action.i-fb(href='#')
+
+            .copyright
+                p Copyright © 2002-2018 Все права защищены.
+                p Перепечатка и использование материалов сайта разрешена только с согласия администрации сайта. #[a(href='#') Связаться с нами по вопросам рекламного сотрудничества]
+                p Данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой.
 
 
 mixin scripts(contacts)
     //-link(rel='stylesheet', href='styles/main_global.css', media='all')
+    script(src='//api-maps.yandex.ru/2.1/?lang=ru_RU')
 
     - if (prod)
         script(src='js/main.min.js' + '?t=' + time)
@@ -264,6 +385,5 @@ mixin scripts(contacts)
         script(src='js/script.js' + '?t=' + time)
 
     - if (contacts)
-        script(src='//api-maps.yandex.ru/2.1/?lang=ru_RU')
         script(src='js/contacts' + (prod ? '.min' : '') + '.js')
 

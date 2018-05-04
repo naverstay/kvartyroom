@@ -25,6 +25,68 @@
   }
 }
 
+.mob_menu_btn {
+  float: right;
+  position: relative;
+  z-index: 7;
+  margin: 2px;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  background: $clr_orange;
+
+  &:before {
+    top: 17px;
+  }
+
+  &:after {
+    top: 21px;
+  }
+
+  span,
+  &:after,
+  &:before {
+    @include transition_all(transform .3s, top .3s);
+    content: '';
+    position: absolute;
+    left: 15px;
+    width: 14px;
+    height: 2px;
+    background: white;
+  }
+
+  span {
+    @include transition_all(opacity .3s);
+    width: 8px;
+    top: 25px;
+    opacity: 1;
+  }
+
+  .menu_opened & {
+    &:before {
+      transform: rotate(-45deg);
+      top: 21px;
+    }
+
+    &:after {
+      transform: rotate(45deg);
+      top: 21px;
+    }
+
+    span {
+      opacity: 0;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    margin: 5px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    display: none;
+  }
+}
+
 // *********  menu
 
 .main_menu_holder {
@@ -50,6 +112,33 @@
 
     &:after {
       left: 100%;
+    }
+  }
+
+  @include respond-to-max($resp_step_2) {
+    @include transition_all(transform .3s);
+    @include transform_translate(100%, 0);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    overflow: hidden;
+    z-index: 5;
+    background: #fff;
+    padding: 85px 0 75px;
+    box-shadow: -5px 2px 5px rgba(0, 0, 0, 0.25);
+
+    .menu_item {
+      margin-top: 10px;
+    }
+
+    .menu_link {
+      padding: 0 10px;
+    }
+
+    .menu_opened & {
+      @include transform_translate(0, 0);
     }
   }
 }
@@ -85,6 +174,7 @@
     padding: 14px 0 10px;
 
     &:before {
+      @include transition_all(height .3s);
       content: '';
       position: absolute;
       bottom: -3px;
@@ -96,6 +186,7 @@
 
     &:hover {
       &:before {
+        height: 6px;
         background: darken($clr_orange, 5%);
       }
     }

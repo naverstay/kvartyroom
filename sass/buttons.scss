@@ -5,8 +5,10 @@
 
   &.search_btn {
     @extend %icon_pseudo;
+    position: relative;
     cursor: pointer;
-    float: right;
+    display: block;
+    margin: 20px auto 0;
     width: 180px;
     font: bold 14px/20px $OpenSans;
     padding: 12px 26px;
@@ -21,11 +23,54 @@
       top: 12px;
       font-size: 30px;
     }
+
+    @include respond-to-min($resp_step_1) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+    }
+  }
+}
+
+.btn_v2 {
+  min-height: 33px;
+
+  &.map_tag {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    padding: 7px 20px;
+    letter-spacing: .025em;
+    line-height: 17px;
+    border: 1px solid transparent;
   }
 }
 
 .green_btn {
   color: #fff;
+}
+
+.btn_white {
+  background: #fff;
+  color: $default_t_color;
+}
+
+.btn_white_bdr {
+  background: #fff;
+  color: $default_t_color;
+  border-color: #d2d2d2 !important;
+
+  &._active {
+
+    @each $cls, $color in $firm-colors {
+      &.#{$cls} {
+        color: #fff;
+        border-color: $color !important;
+        background: $color;
+      }
+    }
+  }
 }
 
 .btn_red {
