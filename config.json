@@ -1,0 +1,10 @@
+{
+  "prod": true,
+  "scripts": [
+    "js/jquery1.10.js",
+    "js/jquery.validationEngine.js",
+    "js/jquery.validationEngine-ru.js",
+    "js/slick.js",
+    "js/script.js"
+  ]
+}

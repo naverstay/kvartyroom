@@ -1,0 +1,40 @@
+//************  buttons
+
+.btn_v1 {
+  height: 54px;
+
+  &.search_btn {
+    @extend %icon_pseudo;
+    cursor: pointer;
+    float: right;
+    width: 180px;
+    font: bold 14px/20px $OpenSans;
+    padding: 12px 26px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+
+    &:before {
+      content: unicode($i-search);
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      font-size: 30px;
+    }
+  }
+}
+
+.green_btn {
+  color: #fff;
+}
+
+.btn_red {
+  @include transition_all(background .3s);
+  color: #fff;
+  background: $clr_orange;
+
+  &:hover {
+    background: darken($clr_orange, 5%);
+  }
+}
+

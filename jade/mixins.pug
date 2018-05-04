@@ -1,0 +1,269 @@
+- var prod = false;
+
+mixin dev_head(page_title)
+    head
+        title=page_title
+        |
+        | <!-- saved from url=(0014)about:internet -->
+        meta(charset='utf-8')
+        meta(name='viewport', content="width=device-width, initial-scale=1.0")
+        meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        meta(name="format-detection", content="telephone=no")
+        link(rel='stylesheet', href='styles/main_global.css', media='all')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Open+Sans:300,400,600,700&amp;subset=cyrillic', rel='stylesheet', type='text/css')
+
+mixin loop_while(counter)
+    -i=0;
+    while i < counter
+        -i++;
+        block
+
+mixin header()
+    .header
+        .section_inner.clearfix
+            .logo_block
+                a.logo(href='#')
+                    img(src='i/logo.png')
+
+            .main_menu_holder
+                ul.main_menu
+                    li.menu_item
+                        a.menu_link(href='#')
+                            span.link_text Квартиры
+                    li.menu_item
+                        a.menu_link(href='#')
+                            span.link_text Новостройки
+                    li.menu_item
+                        a.menu_link(href='#')
+                            span.link_text Компании
+                    li.menu_item
+                        a.menu_link(href='#')
+                            span.link_text Полезное
+
+
+mixin section_newbe()
+    .section._gray
+        .section_inner
+            h2.section_title Новостройки
+
+            ul.flat_list
+                +loop_while(2)
+                    li
+                        .flat_unit
+                            a.flat_unit_img._newbe(href='#')
+                                img(src='i/newbe_1.jpg')
+                                span.flat_unit_date Срок сдачи (III кв. 2018)
+                            .flat_unit_caption._fw_500._fz_18 Ясный
+                            p._fz_13 Москва, Южный административный округ, Каширское шоссе
+
+                            ul.flat_unit_features
+                                li.col_5
+                                    span Тип дома:
+                                    p Монолитный
+
+                                li.col_6
+                                    span Цена за м2 от:
+                                    p 116 710 руб.
+
+                                li.col_4
+                                    p
+                                        span 1КК (от 38 м2):
+                                        span от 5 022 000 руб
+                                    p
+                                        span 2КК (от 59 м2):
+                                        span от 8 115 000 руб
+                                    p
+                                        span 3КК (от 78 м2):
+                                        span от 11 472 000 руб
+                    li
+                        .flat_unit
+                            a.flat_unit_img._newbe(href='#')
+                                img(src='i/newbe_1.jpg')
+                                span.flat_unit_date Срок сдачи (III кв. 2018)
+                            .flat_unit_caption._fw_500._fz_18 Ясный
+                            p._fz_13 Москва, Южный административный округ, Каширское шоссе
+
+                            ul.flat_unit_features
+                                li.col_5
+                                    span Тип дома:
+                                    p Монолитный
+
+                                li.col_6
+                                    span Цена за м2 от:
+                                    p 116 710 руб.
+
+                                li.col_4
+                                    p
+                                        span Студии (от 23 м2):
+                                        span от 2 900 000 руб
+                                    p
+                                        span 1КК (от 38 м2):
+                                        span от 5 022 000 руб
+                                    p
+                                        span 2КК (от 59 м2):
+                                        span от 8 115 000 руб
+                                    p
+                                        span 3КК (от 78 м2):
+                                        span от 11 472 000 руб
+
+
+mixin section_best()
+    .section._gray
+        .section_inner
+            h2.section_title Лучшие квартиры
+
+            ul.flat_list
+                li
+                    .flat_unit
+                        a.flat_unit_img(href='#')
+                            img(src='i/flat_1.jpg')
+                        .flat_unit_caption._fw_500._fz_16 1-комн. квартира, 24,5 м#[sup 2]
+                        .flat_unit_price._fw_500 2 178 000 руб.
+                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                        ul.flat_unit_features
+                            li.col_1
+                                span Тип дома:
+                                p Монолитно-кирпичный
+
+                            li.col_2
+                                span Отделка:
+                                p Без отделки
+
+                            li.col_3
+                                span Этаж:
+                                p 3 из 16
+
+                            li.col_4
+                                span Компания:
+                                a.flat_unit_link(href='#') Самолет Девелопмент
+
+                li
+                    .flat_unit
+                        a.flat_unit_img(href='#')
+                            img(src='i/flat_2.jpg')
+                        .flat_unit_caption._fw_500._fz_16 Апартамент-студия, 19,5 м#[sup 2]
+                        .flat_unit_price._fw_500 4 678 000 руб.
+                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                        ul.flat_unit_features
+                            li.col_1
+                                span Тип дома:
+                                p Монолитно-кирпичный
+
+                            li.col_2
+                                span Отделка:
+                                p Без отделки
+
+                            li.col_3
+                                span Этаж:
+                                p 3 из 16
+
+                            li.col_4
+                                span Компания:
+                                a.flat_unit_link(href='#') Самолет Девелопмент
+
+                li
+                    .flat_unit
+                        a.flat_unit_img(href='#')
+                            img(src='i/flat_3.jpg')
+                        .flat_unit_caption._fw_500._fz_16 3-комн. апартамент, 121,6 м#[sup 2]
+                        .flat_unit_price._fw_500 2 178 000 руб.
+                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                        ul.flat_unit_features
+                            li.col_1
+                                span Тип дома:
+                                p Монолитно-кирпичный
+
+                            li.col_2
+                                span Отделка:
+                                p Без отделки
+
+                            li.col_3
+                                span Этаж:
+                                p 3 из 16
+
+                            li.col_4
+                                span Компания:
+                                a.flat_unit_link(href='#') Самолет Девелопмент
+
+                li
+                    .flat_unit
+                        a.flat_unit_img(href='#')
+                            img(src='i/flat_4.jpg')
+                        .flat_unit_caption._fw_500._fz_16 1-комн. квартира, 24,5 м#[sup 2]
+                        .flat_unit_price._fw_500 2 178 000 руб.
+                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                        ul.flat_unit_features
+                            li.col_1
+                                span Тип дома:
+                                p Монолитно-кирпичный
+
+                            li.col_2
+                                span Отделка:
+                                p Без отделки
+
+                            li.col_3
+                                span Этаж:
+                                p 3 из 16
+
+                            li.col_4
+                                span Компания:
+                                a.flat_unit_link(href='#') Самолет Девелопмент
+
+
+
+mixin main_slider()
+    .main_slider.mainSlider.swiper-container
+        .swiper-wrapper
+            +loop_while(4)
+                .slide.swiper-slide
+                    img(src='i/main_slide.jpg')
+                    //-.slide_content
+
+        .main_slider_controls
+            .section_inner
+                .slide_title: p #[a._link(href='#') #[span 2834]] квартиры в #[a._link(href='#') #[span 372]] новостройках<br> от #[a._link(href='#') #[span 155]] застройщиков
+
+                .slide_search_form.clearfix
+                    form(action='#')
+                        button.btn_v1.btn_red.search_btn
+                            span найти
+                        .input_w
+                            input.input_v1(placeholder='Введите название комплекса, компанию, город или район')
+
+                .slide_info_holder: .slide_info
+                    p._fz_24._ff_mn #[a._link(href='#') #[span Дома возведены. Ключи в день сделки!]]
+                    p._fz_18._ff_os._let_025 #[a._link(href='#') #[span ЖК “Golden City” от Glorax Development]]
+
+            .swiper-pagination.mainPagination
+            .main_slider_prev.slidePrev
+            .main_slider_next.slideNext
+
+mixin footer()
+    .footer
+        .section_inner
+
+
+mixin scripts(contacts)
+    //-link(rel='stylesheet', href='styles/main_global.css', media='all')
+
+    - if (prod)
+        script(src='js/main.min.js' + '?t=' + time)
+    - else
+        script(src='js/jquery1.10.js' + '?t=' + time)
+        script(src='js/jquery-ui-1.11.4.js' + '?t=' + time)
+        //-script(src='js/jquery.fancybox.min.js' + '?t=' + time)
+        script(src='js/select2.js' + '?t=' + time)
+        script(src='js/nouislider.min.js' + '?t=' + time)
+        script(src='js/swiper.min.js' + '?t=' + time)
+        script(src='js/jquery.inputmask.bundle.js' + '?t=' + time)
+        script(src='js/script.js' + '?t=' + time)
+
+    - if (contacts)
+        script(src='//api-maps.yandex.ru/2.1/?lang=ru_RU')
+        script(src='js/contacts' + (prod ? '.min' : '') + '.js')
+

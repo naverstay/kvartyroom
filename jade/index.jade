@@ -1,0 +1,21 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+    +dev_head('Kvartyroom главная')
+
+    body
+        .wrapper
+            .base
+                +header()
+
+                .main_content
+                    +main_slider()
+
+                    +section_best()
+
+                    +section_newbe()
+
+
+            +footer()
+
+    +scripts()
