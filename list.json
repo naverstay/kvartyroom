@@ -1,0 +1,49 @@
+{
+  "balloonContent": [
+    {
+      "object_name": "ЖК 'Никольско-Трубецкое'",
+      "object_class": "Бизнес",
+      "object_price": "от 123 500 руб./м<sup>2</sup>"
+    },
+    {
+      "object_name": "ЖК 'Стрела'",
+      "object_class": "Бизнес",
+      "object_price": "от 123 500 руб./м<sup>2</sup>"
+    },
+    {
+      "object_name": "ЖК 'Никольско-Трубецкое'",
+      "object_class": "Эконом",
+      "object_price": "от 78 500 руб./м<sup>2</sup"
+    },
+    {
+      "object_name": "ЖК 'Стрела'",
+      "object_class": "Бизнес",
+      "object_price": "от 123 500 руб./м<sup>2</sup>"
+    },
+    {
+      "object_name": "ЖК 'Никольско-Трубецкое'",
+      "object_class": "Эконом",
+      "object_price": "от 78 500 руб./м<sup>2</sup"
+    },
+    {
+      "object_name": "ЖК 'Стрела'",
+      "object_class": "Бизнес",
+      "object_price": "от 123 500 руб./м<sup>2</sup>"
+    },
+    {
+      "object_name": "ЖК 'Никольско-Трубецкое'",
+      "object_class": "Эконом",
+      "object_price": "от 78 500 руб./м<sup>2</sup"
+    },
+    {
+      "object_name": "ЖК 'Стрела'",
+      "object_class": "Бизнес",
+      "object_price": "от 123 500 руб./м<sup>2</sup>"
+    },
+    {
+      "object_name": "ЖК 'Никольско-Трубецкое'",
+      "object_class": "Эконом",
+      "object_price": "от 78 500 руб./м<sup>2</sup"
+    }
+  ]
+}

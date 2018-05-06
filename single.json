@@ -1,0 +1,25 @@
+{
+  "balloonContent": [
+    {
+      "object_name": "ЖК 'Никольско-Трубецкое'",
+      "object_image_url": "i/newbe_1.jpg",
+      "object_class": "Бизнес",
+      "object_price": "от 123 500 руб./м<sup>2</sup>",
+      "object_transport": [
+        {
+          "transport_label": "Ближайшее метро",
+          "transport_name": "м. Шоссе Энтузиастов",
+          "transport_time": "7 мин",
+          "transport_type": "car"
+        },
+        {
+          "transport_label": "ЖД платформа",
+          "transport_name": "Новоалексеевка",
+          "transport_time": "15 мин",
+          "transport_type": "car"
+        }
+      ]
+    }
+  ]
+}
+

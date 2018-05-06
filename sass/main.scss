@@ -602,6 +602,107 @@ body {
   }
 }
 
+.balloon_content {
+  width: 230px;
+}
+
+.balloon_img {
+  margin-bottom: 10px;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.balloon_features {
+  @extend %clearfix;
+  font: 13px $OpenSans;
+  padding-bottom: 7px;
+
+  sup {
+    font-size: .7em;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  dt {
+    clear: both;
+    color: #a8a8a8;
+    padding-right: 3px;
+
+    &._wide {
+      margin-top: 8px;
+    }
+  }
+
+  dt,
+  dd {
+    float: left;
+  }
+
+  dd {
+    margin-bottom: 2px;
+  }
+
+  ._wide {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+.balloon_transport_icon {
+  @extend %icon_pseudo;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background: #ffef3c;
+  line-height: 24px;
+  font-size: 16px;
+  text-align: center;
+  margin: -5px 4px -5px 16px;
+
+  &._car {
+    &:before {
+      content: unicode($i-car);
+    }
+  }
+}
+
+.balloon_name {
+  font: bold 14px $OpenSans;
+  margin-bottom: 5px;
+}
+
+.balloon_list {
+  width: 210px;
+  max-height: 280px;
+  overflow-y: auto;
+  font: 13px $OpenSans;
+
+  sup {
+    font-size: .7em;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  dt {
+
+  }
+
+  dd {
+    color: #a8a8a8;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 // **********  text
 
 .text_center {

@@ -1,7 +1,7 @@
 - var prod = false;
 - var map_tags = ['Новостройки Новой Москвы', 'Жилые комплексы Эконом-Класса', 'Новостройки в Домодедово', 'Новостройки в Железнодорожном', 'Студии в Московской области', '2-комнатные квартиры в Мытищах'];
 - var map_filter = ['Эконом-класс', 'Комфорт', 'Элитный', 'Посмотреть все'];
-- var map_filter_clr = ['_econom', '_comfort', '_elite', '_all reset'];
+- var map_filter_clr = ['_econom', '_comfort', '_elite', 'reset'];
 
 mixin dev_head(page_title)
     head
@@ -120,7 +120,7 @@ mixin section_map()
                 ul.map_tags_list._filter
                     each tag, ind in map_filter
                         li
-                            a.map_tag.btn_v2.btn_white_bdr._fz_13.filterBtn._active(href='#' class= map_filter_clr[ind] )= tag
+                            a.map_tag.btn_v2.btn_white_bdr._fz_13.filterBtn._active(href='#', data-filter= map_filter_clr[ind], class= map_filter_clr[ind])= tag
 
     .section._map_tags
         .section_inner
@@ -193,7 +193,6 @@ mixin section_newbe()
                                     p
                                         span 3КК (от 78 м2):
                                         span от 11 472 000 руб
-
 
 mixin section_best()
     .section._gray
