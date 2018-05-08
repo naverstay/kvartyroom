@@ -2,62 +2,93 @@
 
 @font-face {
   font-family: 'kvartyroom';
-  src:  url('#{$icomoon-font-path}/kvartyroom.eot?jvrofb');
-  src:  url('#{$icomoon-font-path}/kvartyroom.eot?jvrofb#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/kvartyroom.ttf?jvrofb') format('truetype'),
-    url('#{$icomoon-font-path}/kvartyroom.woff?jvrofb') format('woff'),
-    url('#{$icomoon-font-path}/kvartyroom.svg?jvrofb#kvartyroom') format('svg');
+  src: url('#{$icomoon-font-path}/kvartyroom.eot?x8wj6v');
+  src: url('#{$icomoon-font-path}/kvartyroom.eot?x8wj6v#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/kvartyroom.ttf?x8wj6v') format('truetype'),
+  url('#{$icomoon-font-path}/kvartyroom.woff?x8wj6v') format('woff'),
+  url('#{$icomoon-font-path}/kvartyroom.svg?x8wj6v#kvartyroom') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="i-"], [class*=" i-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'kvartyroom' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+  &:before, &:after {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'kvartyroom' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 @function unicode($str) {
   @return unquote("\"") + $str + unquote("\"");
 }
 
+.i-close {
+  &:before {
+    content: unicode($i-close);
+  }
+}
+
 .i-car {
   &:before {
-    content: unicode($i-car); 
+    content: unicode($i-car);
   }
 }
+
 .i-vk {
   &:before {
-    content: unicode($i-vk); 
+    content: unicode($i-vk);
   }
 }
+
 .i-search {
   &:before {
-    content: unicode($i-search); 
+    content: unicode($i-search);
   }
 }
+
 .i-fb {
   &:before {
-    content: unicode($i-fb); 
+    content: unicode($i-fb);
   }
 }
+
 .i-chevron-thin-left {
   &:before {
-    content: unicode($i-chevron-thin-left); 
+    content: unicode($i-chevron-thin-left);
   }
 }
+
 .i-chevron-thin-right {
   &:before {
-    content: unicode($i-chevron-thin-right); 
+    content: unicode($i-chevron-thin-right);
+  }
+}
+
+.i-chevron-thin-up {
+  &:before {
+    content: unicode($i-chevron-thin-up);
+  }
+}
+
+.i-chevron-thin-down {
+  &:before {
+    content: unicode($i-chevron-thin-down);
+  }
+}
+
+.i-location {
+  &:before {
+    content: unicode($i-location);
   }
 }
 

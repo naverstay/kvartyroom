@@ -1,139 +1,148 @@
 //---------------------------------------------------------------------ui-dialog
 .ui-helper-hidden {
-	display: none;
+  display: none;
 }
 
 .ui-helper-hidden-accessible {
-	z-index: 5000;
-	position: absolute;
-	opacity: 0;
-	left: 0;
-	color: transparent;
-	visibility: hidden;
+  z-index: 5000;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  color: transparent;
+  visibility: hidden;
 }
 
 //-------------------------------------------------------ui-dialog
 .ui-dialog {
-	z-index: 1000;
-	position: absolute;
-	display: none;
-	outline: 0;
+  z-index: 1000;
+  position: absolute;
+  display: none;
+  outline: 0;
 
-	.no_animation & {
-		display: none !important;
-	}
+  .no_animation & {
+    display: none !important;
+  }
+
+  &.dialog_g_size_1 {
+    max-height: 95vh;
+    max-width: 95vw;
+    overflow-y: auto;
+  }
 }
 
 .dialog_global {
-	box-shadow: 0 3px 13px rgba(59, 59, 59, .86);
+  box-shadow: 0 3px 13px rgba(59, 59, 59, .86);
 }
 
-.ui-dialog-content{
-	min-height: 0 !important;
+.ui-dialog-content {
+  min-height: 0 !important;
 
-	.dialog_color_schem_1 &{
-		background: #e5e5e5;
-	}
+  .dialog_color_schem_1 & {
+    background: #e5e5e5;
+  }
 }
 
 .ui-dialog-content_border {
 }
 
 .ui-resizable-handle {
-	display: none !important;
+  display: none !important;
 }
 
 .ui-widget-overlay {
-	z-index: 500;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	//	background: #fff;
-	background: transparentize(#293b47, .6);
+  z-index: 500;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  //	background: #fff;
+  background: transparentize(#293b47, .6);
+
+  .overlay_v2 & {
+    background: transparentize(#010101, .4);
+  }
 }
 
 .ui-helper-clearfix {
-	display: block;
-	&:after {
-		display: block;
-		height: 0;
-		clear: both;
-		content: "";
-		visibility: hidden;
-	}
+  display: block;
+  &:after {
+    display: block;
+    height: 0;
+    clear: both;
+    content: "";
+    visibility: hidden;
+  }
 }
 
 .ui-dialog-titlebar-close {
-	.dialog_close_butt_mod_1 & {
-		// виды крестиков закрытия
-		cursor: pointer;
-		position: absolute;
-		top: 10px;
-		right: 20px;
-		width: 28px;
-		height: 28px;
-		border-radius: 100%;
-		background: #fff;
+  .dialog_close_butt_mod_1 & {
+    // виды крестиков закрытия
+    @extend %icon_pseudo;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background: #fff;
 
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
+    &:before {
+      @include transition_all(color .3s);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 24px;
+      color: #bababa;
+      content: unicode($i-close);
+    }
 
-		&:before {
-			background: url(../i/new_admin/close_blue.svg) no-repeat 0px 0px;
-		}
-		&:hover {
-			&:before {
-				background: url(../i/new_admin/close.svg) no-repeat 0px 0px;
-			}
-		}
+    &:hover {
+      &:before {
+        color: #000;
+      }
+    }
+  }
 
-	}
+  .no_close_mod & {
+    display: none !important;
+  }
 
-	.no_close_mod & {
-		display: none !important;
-	}
+  .no_title_mod & {
 
-	.no_title_mod & {
-
-	}
+  }
 
 }
 
 .ui-dialog-titlebar {
 
-	.ui-draggable & {
-		cursor: move;
-	}
+  .ui-draggable & {
+    cursor: move;
+  }
 
-	.dialog_g_size_1 & {
-		padding: 10px 50px 10px 20px;
-		background: #fff;
-		border-bottom: 1px solid #a7a7a7;
-		color: #1d1d1b;
-		font-size: 26px;
-		font-weight: bold;
-	}
+  .dialog_g_size_1 & {
+    height: 38px;
+    background: #fff;
 
-	.title_center_mod &{
-		text-align: center;
-	}
+    @include respond-to-min($resp_step_1) {
+      height: 30px;
+    }
+  }
+
+  .title_center_mod & {
+    text-align: center;
+  }
 
 }
 
-.dialog_butt_wrap{
+.dialog_butt_wrap {
 
-	.dialog_butt_v1 &{
-		@extend %global_flex_block_row_nowrap_center;
-		padding: 25px 0;
-	}
+  .dialog_butt_v1 & {
+    @extend %global_flex_block_row_nowrap_center;
+    padding: 25px 0;
+  }
 }
 
 //---------------------------------------------------------------------ui-dialog

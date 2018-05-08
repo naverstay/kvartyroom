@@ -1,0 +1,119 @@
+.pagination_block {
+  position: relative;
+  padding: 0 25px;
+  margin: 32px 0 25px;
+
+  @include respond-to-min($resp_step_1) {
+    padding: 0 100px;
+  }
+}
+
+.pagination_list {
+  text-align: center;
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+.pagination_link {
+  @include transition_all(color .3s);
+  position: relative;
+  display: block;
+  color: #464646;
+  line-height: 32px;
+
+  &._next,
+  &._prev {
+    @extend %icon_pseudo;
+    position: absolute;
+    top: 0;
+
+    &:before {
+      @include transition_all(opacity .3s);
+      position: absolute;
+      top: 0;
+      width: 15px;
+      text-align: center;
+      color: #959595;
+      opacity: .7;
+      line-height: 32px;
+      font-size: 20px;
+    }
+
+    &:hover {
+
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &._next {
+    right: 0;
+    padding-right: 25px;
+
+    &:before {
+      right: 0;
+      content: unicode($i-chevron-thin-right);
+    }
+  }
+
+  &._prev {
+    left: 0;
+    padding-left: 25px;
+
+    &:before {
+      left: 0;
+      content: unicode($i-chevron-thin-left);
+    }
+  }
+
+  &:hover {
+    color: $clr_orange;
+  }
+
+  .pagination_list & {
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+
+    &._active {
+      color: #fff;
+      background: $clr_orange;
+      cursor: default;
+    }
+  }
+}
+
+.article_block {
+
+  figure {
+    margin-bottom: 32px;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  p {
+    margin-bottom: 18px;
+    letter-spacing: .03em;
+    line-height: 1.4;
+
+    @include respond-to-min($resp_step_1) {
+      padding-right: 40px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      padding-right: 80px;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding-bottom: 20px;
+  }
+}

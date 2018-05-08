@@ -4,31 +4,35 @@
   height: 54px;
 
   &.search_btn {
-    @extend %icon_pseudo;
-    position: relative;
+    //position: relative;
     cursor: pointer;
     display: block;
-    margin: 20px auto 0;
+    //margin: 20px auto 0;
     width: 180px;
     font: bold 14px/20px $OpenSans;
-    padding: 12px 26px;
-    text-align: left;
+    padding: 17px 26px;
     text-transform: uppercase;
     letter-spacing: .06em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
 
-    &:before {
-      content: unicode($i-search);
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      font-size: 30px;
+    &.i-search {
+      &:before {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        font-size: 30px;
+      }
     }
 
-    @include respond-to-min($resp_step_1) {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 0;
+    @include respond-to-max($resp_step_1) {
+      width: 54px;
+
+      span {
+        display: none;
+      }
     }
   }
 }
@@ -45,6 +49,67 @@
     line-height: 17px;
     border: 1px solid transparent;
   }
+
+  &.search_tag {
+    display: block;
+    text-decoration: none;
+    padding: 5px 18px;
+    line-height: 23px;
+    letter-spacing: .015em;
+  }
+}
+
+.btn_v3 {
+  height: 40px;
+
+  &.more_btn {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    padding: 10px 20px;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+    text-align: center;
+    font: bold 13px/20px $OpenSans;
+  }
+
+  &.search_btn {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font: bold 14px/20px $OpenSans;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+
+    @include respond-to-min($resp_step_1) {
+      .popup_controls & {
+        padding: 10px 31px;
+      }
+    }
+  }
+}
+
+.btn_v4 {
+  height: 50px;
+
+  &.more_btn {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    padding: 10px 20px;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    font: bold 13px/30px $OpenSans;
+  }
+}
+
+.orange_btn {
+  color: #fff;
+  background: $clr_orange;
 }
 
 .green_btn {
@@ -53,6 +118,11 @@
 
 .btn_white {
   background: #fff;
+  color: $default_t_color;
+}
+
+.gray_btn {
+  background: #ededed;
   color: $default_t_color;
 }
 

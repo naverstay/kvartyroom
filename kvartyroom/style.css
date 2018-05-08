@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'kvartyroom';
-  src:  url('fonts/kvartyroom.eot?jvrofb');
-  src:  url('fonts/kvartyroom.eot?jvrofb#iefix') format('embedded-opentype'),
-    url('fonts/kvartyroom.ttf?jvrofb') format('truetype'),
-    url('fonts/kvartyroom.woff?jvrofb') format('woff'),
-    url('fonts/kvartyroom.svg?jvrofb#kvartyroom') format('svg');
+  src:  url('fonts/kvartyroom.eot?x8wj6v');
+  src:  url('fonts/kvartyroom.eot?x8wj6v#iefix') format('embedded-opentype'),
+    url('fonts/kvartyroom.ttf?x8wj6v') format('truetype'),
+    url('fonts/kvartyroom.woff?x8wj6v') format('woff'),
+    url('fonts/kvartyroom.svg?x8wj6v#kvartyroom') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-close:before {
+  content: "\e908";
+}
 .i-car:before {
   content: "\e905";
 }
@@ -41,4 +44,13 @@
 }
 .i-chevron-thin-right:before {
   content: "\e902";
+}
+.i-chevron-thin-up:before {
+  content: "\e906";
+}
+.i-chevron-thin-down:before {
+  content: "\e907";
+}
+.i-location:before {
+  content: "\e947";
 }

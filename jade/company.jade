@@ -1,0 +1,22 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+    +dev_head('Kvartyroom Компании')
+
+    body
+        .wrapper
+            .base
+                +header()
+                .main_content
+                    .section_inner
+                        +breadcrumbs(['Главная', 'Компании'])
+
+                    +section_company()
+
+                    +section_newbe(true)
+
+                    +section_articles()
+
+            +footer()
+
+    +scripts()

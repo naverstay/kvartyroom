@@ -140,4 +140,13 @@ $rectWidth: $content-max-w;
   }
 }
 
+.mob_hidden {
 
+  @include respond-to-max($resp_step_1) {
+    display: none !important;
+  }
+}
+
+.clr_gray {
+  color: #8f8f8f;
+}

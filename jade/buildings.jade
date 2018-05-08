@@ -1,0 +1,22 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+    +dev_head('Kvartyroom Новостройки')
+
+    body
+        .wrapper
+            .base
+                +header()
+                .main_content
+                    .section_inner
+                        +breadcrumbs(['Главная', 'Новостройки'])
+
+                    +main_slider(false, true)
+
+                    +search_results(false, true)
+
+                    +section_seo(false, true)
+
+            +footer()
+
+    +scripts()

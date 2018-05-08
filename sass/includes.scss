@@ -1,15 +1,18 @@
 @import "includes/global_var";
 @import "reset";
 //@import "fonts";
-//@import "jquery.ui.all";
 //@import "datapicker";
 @import "swiper";
 @import "font_icons";
 @import "../kvartyroom/style.scss";
+@import "jquery.ui.all";
+@import "nouislider";
+@import "_select2";
 
 @import "main";
 @import "header";
 @import "forms";
+@import "article";
 @import "buttons";
 @import "tables";
 @import "footer";

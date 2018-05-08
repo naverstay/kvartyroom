@@ -1,0 +1,23 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+    +dev_head('Kvartyroom Новостройки')
+
+    body
+        | <script> var list = true; </script>
+        .wrapper
+            .base
+                +header()
+                .main_content
+                    .section_inner
+                        +breadcrumbs(['Главная', 'Квартиры'])
+
+                    +main_slider(false, true)
+
+                    +section_flats()
+
+                    +section_seo(false, true)
+
+            +footer()
+
+    +scripts()

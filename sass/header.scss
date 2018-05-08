@@ -192,3 +192,41 @@
     }
   }
 }
+
+.breadcrumbs {
+  @extend %clearfix;
+  padding-bottom: 18px;
+
+  li {
+    position: relative;
+    float: left;
+    padding-left: 20px;
+    color: #8d8d8d;
+    font-size: 13px;
+    margin-bottom: 5px;
+
+    &:before {
+      content: '/';
+      position: absolute;
+      top: 0;
+      left: 8px;
+    }
+
+    &:first-child {
+      padding-left: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+.crumb_link {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

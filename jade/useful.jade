@@ -1,0 +1,70 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+    +dev_head('Kvartyroom полезное')
+
+    body
+        .wrapper
+            .base
+                +header()
+
+                .main_content
+                    .section_inner
+                        +breadcrumbs(['Главная', 'Полезное'])
+
+                        h1.section_title Полезное
+
+                        .content_holder
+                            .content_block
+                                ul.news_list._short
+                                    +loop_while(3)
+                                        li
+                                            .news_unit
+
+                                                a.news_img(href='usefull_1.html')
+                                                    img(src='i/newbe_1.jpg')
+
+                                                .news_title: a.news_link(href='#') ГК «Гранель» передала ключи обманутым дольщикам ЖК «Квартал Лукино»
+                                                p Корпус №1 ЖК «Новокрасково» получил разрешение на ввод в эксплуатацию
+
+                                        li
+                                            .news_unit
+                                                a.news_img(href='usefull_1.html')
+                                                    img(src='i/newbe_1.jpg')
+
+                                                .news_title: a.news_link(href='#') «Центр-2» - жизнь в центре событий
+                                                p «Новогорск парк» - живите в окружении «зеленого моря»
+
+                                        li
+                                            .news_unit
+                                                a.news_img(href='usefull_1.html')
+                                                    img(src='i/newbe_1.jpg')
+
+                                                .news_title: a.news_link(href='#') ГК «Гранель» передала ключи обманутым дольщикам ЖК «Квартал Лукино»
+                                                p Корпус №1 ЖК «Новокрасково» получил разрешение на ввод в эксплуатацию
+
+                                        li
+                                            .news_unit
+                                                a.news_img(href='usefull_1.html')
+                                                    img(src='i/newbe_1.jpg')
+
+                                                .news_title: a.news_link(href='#') «Центр-2» - жизнь в центре событий
+                                                p Корпус №1 ЖК «Новокрасково» получил разрешение на ввод в эксплуатацию
+
+                                .pagination_block
+                                    a.pagination_link._prev(href='#')
+                                        span.mob_hidden В начало
+                                    a.pagination_link._next(href='#')
+                                        span.mob_hidden В конец
+
+                                    ul.pagination_list
+                                        -p=0;
+                                        while p < 5
+                                            -p++;
+                                            li: a.pagination_link(href='#' class= (p === 2 ? '_active' : ''))= p
+
+                            +aside()
+
+            +footer()
+
+    +scripts()
