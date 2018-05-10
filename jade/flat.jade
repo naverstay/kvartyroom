@@ -1,0 +1,20 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+    +dev_head('Kvartyroom Квартира')
+
+    body
+        .wrapper
+            .base
+                +header()
+                .main_content
+                    .section_inner
+                        +breadcrumbs(['Главная', 'Квартиры в Москве', 'Студии'])
+
+                    +section_flat()
+
+                    +section_similar_flats()
+
+            +footer()
+
+    +scripts()

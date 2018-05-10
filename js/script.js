@@ -1,4 +1,4 @@
-var mainSlider, $body;
+var mainSlider, flatSlider, flatThumbSlider, $body;
 var myMap, myPlacemark, objectManager, $metro_popup;
 var autoCompleteOptions = {};
 
@@ -30,9 +30,11 @@ $(function ($) {
         return false;
     });
 
-    initAutoComplete($('.searchField'), autoCompleteOptions);
+//    initAutoComplete($('.searchField'), autoCompleteOptions);
 
     initMainSlider();
+
+    initFlatSlider();
 
     initSelect2();
 
@@ -93,6 +95,60 @@ function initMainSlider() {
         }
     });
 
+}
+
+function initFlatSlider() {
+
+    if ($('.flatSlider').length && $('.flatThumbSlider').length) {
+        flatSlider = new Swiper('.flatSlider', {
+            noSwipingSelector: '.slide_search_form',
+            slidesPerView: 1,
+            loop: true,
+            speed: 1000,
+            //autoplay: {
+            //    delay: 6000,
+            //    disableOnInteraction: false
+            //},
+            pagination: false,
+            navigation: false
+        });
+
+        flatThumbSlider = new Swiper('.flatThumbSlider', {
+            slidesPerView: 4,
+            freeModeSticky: true,
+            freeMode: true,
+            loop: true,
+            speed: 1000,
+            spaceBetween: 10,
+
+            //autoplay: {
+            //    delay: 6000,
+            //    disableOnInteraction: false
+            //},
+            pagination: false,
+            navigation: false,
+            slideToClickedSlide: true,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2
+                },
+                1200: {
+                    slidesPerView: 3
+                }
+            },
+            on: {
+                imagesReady: function () {
+
+                },
+                click: function () {
+                    flatSlider.autoplay.stop();
+                }
+            }
+        });
+
+        flatSlider.controller.control = flatThumbSlider;
+        flatThumbSlider.controller.control = flatSlider;
+    }
 }
 
 /*function init() {

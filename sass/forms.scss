@@ -197,6 +197,25 @@
 
 }
 
+.check_v2 {
+  display: block;
+
+  .check_text {
+    text-align: center;
+    color: #505050;
+    width: 32px;
+    height: 32px;
+    display: block;
+    border-radius: 100%;
+    font: 18px/32px $OpenSans;
+  }
+
+  .hide:checked + .check_text {
+    color: #fff;
+    background: $clr_orange;
+  }
+}
+
 .check_v1 {
   display: block;
 
@@ -417,6 +436,18 @@
 
     &._right {
       float: right;
+    }
+  }
+
+  .company_description & {
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 25px 0;
+    padding: 0 15px 0 0;
+
+    .check_v1 .check_text {
+      padding: 5px 29px;
     }
   }
 

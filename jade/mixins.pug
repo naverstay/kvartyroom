@@ -129,9 +129,9 @@ mixin section_flats()
                         +loop_while(3)
                             li
                                 .flat_unit
-                                    a.flat_unit_img(href='#')
+                                    a.flat_unit_img(href='flat.html')
                                         img(src='i/flat_1.jpg')
-                                    .flat_unit_caption._fw_500._fz_16 1-комн. квартира, 24,5 м#[sup 2]
+                                    .flat_unit_caption._fw_500._fz_16: a(href='flat.html') 1-комн. квартира, 24,5 м#[sup 2]
                                     .flat_unit_price._fw_500 2 178 000 руб.
                                     p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
 
@@ -155,9 +155,9 @@ mixin section_flats()
                                     +flat_features(1)
                             li
                                 .flat_unit
-                                    a.flat_unit_img(href='#')
+                                    a.flat_unit_img(href='flat.html')
                                         img(src='i/flat_2.jpg')
-                                    .flat_unit_caption._fw_500._fz_16 Апартамент-студия, 19,5 м#[sup 2]
+                                    .flat_unit_caption._fw_500._fz_16: a(href='flat.html') Апартамент-студия, 19,5 м#[sup 2]
                                     .flat_unit_price._fw_500 4 678 000 руб.
                                     p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
 
@@ -182,9 +182,9 @@ mixin section_flats()
 
                             li
                                 .flat_unit
-                                    a.flat_unit_img(href='#')
+                                    a.flat_unit_img(href='flat.html')
                                         img(src='i/flat_3.jpg')
-                                    .flat_unit_caption._fw_500._fz_16 3-комн. апартамент, 121,6 м#[sup 2]
+                                    .flat_unit_caption._fw_500._fz_16: a(href='flat.html') 3-комн. апартамент, 121,6 м#[sup 2]
                                     .flat_unit_price._fw_500 2 178 000 руб.
                                     p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
 
@@ -380,6 +380,151 @@ mixin search_results(company, flat)
 
                 +aside(true, '_white')
 
+mixin section_flat()
+    .section._company
+        .section_inner
+            .company_name: a.company_link(href='company.html') Квартира-студия, 23.4 м#[sup 2], (лот №KR20563)
+            .company_type
+                .fl Москва, Бирюлево Восточное, ул. Элеваторная
+                .company_add_date Дата последнего изменения: 04.01.2018
+
+            .company_unit._wide
+                .company_description._gallery
+                    .text_center
+                        ul.view_switcher
+                            li: label.check_v1
+                                input.hide(type='radio' checked name='flat_view')
+                                span.check_text Фото
+                            li: label.check_v1
+                                input.hide(type='radio' name='flat_view')
+                                span.check_text Карта
+
+                    .flat_slider: .swiper-container.flatSlider
+                        .swiper-wrapper
+                            +loop_while(8)
+                                .slide.swiper-slide
+                                    img(src='i/flat_plan.png')
+
+                    .flat_thumb_slider: .swiper-container.flatThumbSlider
+                        .swiper-wrapper
+                            +loop_while(8)
+                                .slide.swiper-slide
+                                    img(src='i/flat_plan.png')
+
+                .company_description
+                    .flat_price
+                        span.flat_price_val 20 376 300
+                        ul.price_currency
+                            li
+                                label.check_v2
+                                    input.hide(type='radio' checked name='price_currency')
+                                    span.check_text &#8381;
+                            li
+                                label.check_v2
+                                    input.hide(type='radio' name='price_currency')
+                                    span.check_text &#36;
+                            li
+                                label.check_v2
+                                    input.hide(type='radio' name='price_currency')
+                                    span.check_text &#8364;
+                            li
+                                label.check_v2
+                                    input.hide(type='radio' name='price_currency')
+                                    span.check_text &#8383;
+
+                    ul.flat_options
+                        li
+                            .flat_option_val 93.9 м#[sup 2]
+                            .flat_option_label Площадь общая
+                        li
+                            .flat_option_val 217 000
+                            .flat_option_label руб/м#[sup 2]
+                        li
+                            .flat_option_val 198 441
+                            .flat_option_label Ипотека от, руб/мес
+
+                    .flat_contacts
+                        .flat_phone 8 (495) 104 59 61
+
+                        p Звоните, чтобы узнать подробности
+
+                    .flat_controls
+                        a.btn_v3.orange_btn.more_btn(href='#') забронировать
+
+                        p
+                            a.claim_link(href='#') Пожаловаться
+
+                    ul.flat_params
+                        li
+                            p._fw_500 Квартира
+                            ul.flat_unit_features
+                                li.col_4
+                                    p
+                                        span Количество комнат:
+                                        span 2
+                                    p
+                                        span Общая площадь:
+                                        span 93.9 м2
+                                    p
+                                        span Жилая площадь:
+                                        span 42.3 м2
+                                    p
+                                        span Площадь комнат:
+                                        span 15.2/16.1/11 м2
+                                    p
+                                        span Площадь кухни:
+                                        span 24.8 м2
+                                    p
+                                        span Санузел:
+                                        span совм. и разд.
+                                    p
+                                        span Балкон:
+                                        span лоджия
+                                    p
+                                        span Отделка:
+                                        span без отделки
+
+                        li
+                            p._fw_500 Дом и комплекс
+                            ul.flat_unit_features
+                                li.col_4
+                                    p
+                                        span Этаж:
+                                        span  3 из 16
+                                    p
+                                        span Квартир на этаже:
+                                        span   4
+                                    p
+                                        span Лифт:
+                                        span  есть
+                                    p
+                                        span Тип дома:
+                                        span монолитный
+                                    p
+                                        span Срок сдачи:
+                                        span   II кв. 2018
+                                    p
+                                        span Жилой комплекс:
+                                        a.flat_unit_link(href='#') Царская площадь
+                                    p
+                                        span Компания:
+                                        a.flat_unit_link(href='#') MR Group
+
+                    p._fw_500 Инфраструктура
+
+                    ul.search_tags
+                        li: a.search_tag.btn_v2.gray_btn(href='#') магазин
+                        li: a.search_tag.btn_v2.gray_btn(href='#') детский сад
+                        li: a.search_tag.btn_v2.gray_btn(href='#') школа
+                        li: a.search_tag.btn_v2.gray_btn(href='#') паркинг
+                        li: a.search_tag.btn_v2.gray_btn(href='#') детская площадка
+                        li: a.search_tag.btn_v2.gray_btn(href='#') развлекательный центр
+                        li: a.search_tag.btn_v2.gray_btn(href='#') магазин
+                        li: a.search_tag.btn_v2.gray_btn(href='#') детский сад
+                        li: a.search_tag.btn_v2.gray_btn(href='#') школа
+                        li: a.search_tag.btn_v2.gray_btn(href='#') паркинг
+
+
 mixin section_company()
     .section._company
         .section_inner
@@ -388,7 +533,6 @@ mixin section_company()
 
             .company_unit._wide
                 .company_description
-
                     a.company_img(href='company.html')
                         img(src='i/level_group.png')
 
@@ -638,112 +782,129 @@ mixin section_newbe(company)
                                         span 3КК (от 78 м2):
                                         span от 11 472 000 руб
 
+mixin section_similar_flats()
+    .section._gray
+        .section_inner
+            .section_title
+                h2.fl Похожие предложения квартир
+                ul.view_switcher._right
+                    li: label.check_v1
+                        input.hide(type='radio' checked name='similar_flats_sort')
+                        span.check_text По цене
+                    li: label.check_v1
+                        input.hide(type='radio' name='similar_flats_sort')
+                        span.check_text По местоположению
+
+            +flats()
+
+mixin flats()
+    ul.flat_list
+        li
+            .flat_unit
+                a.flat_unit_img(href='#')
+                    img(src='i/flat_1.jpg')
+                .flat_unit_caption._fw_500._fz_16 1-комн. квартира, 24,5 м#[sup 2]
+                .flat_unit_price._fw_500 2 178 000 руб.
+                p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                ul.flat_unit_features
+                    li.col_1
+                        span Тип дома:
+                        p Монолитно-кирпичный
+
+                    li.col_2
+                        span Отделка:
+                        p Без отделки
+
+                    li.col_3
+                        span Этаж:
+                        p 3 из 16
+
+                    li.col_4
+                        span Компания:
+                        a.flat_unit_link(href='#') Самолет Девелопмент
+
+        li
+            .flat_unit
+                a.flat_unit_img(href='#')
+                    img(src='i/flat_2.jpg')
+                .flat_unit_caption._fw_500._fz_16 Апартамент-студия, 19,5 м#[sup 2]
+                .flat_unit_price._fw_500 4 678 000 руб.
+                p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                ul.flat_unit_features
+                    li.col_1
+                        span Тип дома:
+                        p Монолитно-кирпичный
+
+                    li.col_2
+                        span Отделка:
+                        p Без отделки
+
+                    li.col_3
+                        span Этаж:
+                        p 3 из 16
+
+                    li.col_4
+                        span Компания:
+                        a.flat_unit_link(href='#') Самолет Девелопмент
+
+        li
+            .flat_unit
+                a.flat_unit_img(href='#')
+                    img(src='i/flat_3.jpg')
+                .flat_unit_caption._fw_500._fz_16 3-комн. апартамент, 121,6 м#[sup 2]
+                .flat_unit_price._fw_500 2 178 000 руб.
+                p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                ul.flat_unit_features
+                    li.col_1
+                        span Тип дома:
+                        p Монолитно-кирпичный
+
+                    li.col_2
+                        span Отделка:
+                        p Без отделки
+
+                    li.col_3
+                        span Этаж:
+                        p 3 из 16
+
+                    li.col_4
+                        span Компания:
+                        a.flat_unit_link(href='#') Самолет Девелопмент
+
+        li
+            .flat_unit
+                a.flat_unit_img(href='#')
+                    img(src='i/flat_4.jpg')
+                .flat_unit_caption._fw_500._fz_16 1-комн. квартира, 24,5 м#[sup 2]
+                .flat_unit_price._fw_500 2 178 000 руб.
+                p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
+
+                ul.flat_unit_features
+                    li.col_1
+                        span Тип дома:
+                        p Монолитно-кирпичный
+
+                    li.col_2
+                        span Отделка:
+                        p Без отделки
+
+                    li.col_3
+                        span Этаж:
+                        p 3 из 16
+
+                    li.col_4
+                        span Компания:
+                        a.flat_unit_link(href='#') Самолет Девелопмент
+
 mixin section_best()
     .section._gray
         .section_inner
             h2.section_title.text_center Лучшие квартиры
 
-            ul.flat_list
-                li
-                    .flat_unit
-                        a.flat_unit_img(href='#')
-                            img(src='i/flat_1.jpg')
-                        .flat_unit_caption._fw_500._fz_16 1-комн. квартира, 24,5 м#[sup 2]
-                        .flat_unit_price._fw_500 2 178 000 руб.
-                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
-
-                        ul.flat_unit_features
-                            li.col_1
-                                span Тип дома:
-                                p Монолитно-кирпичный
-
-                            li.col_2
-                                span Отделка:
-                                p Без отделки
-
-                            li.col_3
-                                span Этаж:
-                                p 3 из 16
-
-                            li.col_4
-                                span Компания:
-                                a.flat_unit_link(href='#') Самолет Девелопмент
-
-                li
-                    .flat_unit
-                        a.flat_unit_img(href='#')
-                            img(src='i/flat_2.jpg')
-                        .flat_unit_caption._fw_500._fz_16 Апартамент-студия, 19,5 м#[sup 2]
-                        .flat_unit_price._fw_500 4 678 000 руб.
-                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
-
-                        ul.flat_unit_features
-                            li.col_1
-                                span Тип дома:
-                                p Монолитно-кирпичный
-
-                            li.col_2
-                                span Отделка:
-                                p Без отделки
-
-                            li.col_3
-                                span Этаж:
-                                p 3 из 16
-
-                            li.col_4
-                                span Компания:
-                                a.flat_unit_link(href='#') Самолет Девелопмент
-
-                li
-                    .flat_unit
-                        a.flat_unit_img(href='#')
-                            img(src='i/flat_3.jpg')
-                        .flat_unit_caption._fw_500._fz_16 3-комн. апартамент, 121,6 м#[sup 2]
-                        .flat_unit_price._fw_500 2 178 000 руб.
-                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
-
-                        ul.flat_unit_features
-                            li.col_1
-                                span Тип дома:
-                                p Монолитно-кирпичный
-
-                            li.col_2
-                                span Отделка:
-                                p Без отделки
-
-                            li.col_3
-                                span Этаж:
-                                p 3 из 16
-
-                            li.col_4
-                                span Компания:
-                                a.flat_unit_link(href='#') Самолет Девелопмент
-
-                li
-                    .flat_unit
-                        a.flat_unit_img(href='#')
-                            img(src='i/flat_4.jpg')
-                        .flat_unit_caption._fw_500._fz_16 1-комн. квартира, 24,5 м#[sup 2]
-                        .flat_unit_price._fw_500 2 178 000 руб.
-                        p Москва, Бирюлево Восточное, ул.&nbsp;Элеваторная
-
-                        ul.flat_unit_features
-                            li.col_1
-                                span Тип дома:
-                                p Монолитно-кирпичный
-
-                            li.col_2
-                                span Отделка:
-                                p Без отделки
-
-                            li.col_3
-                                span Этаж:
-                                p 3 из 16
-
-                            li.col_4
-                                span Компания:
-                                a.flat_unit_link(href='#') Самолет Девелопмент
-
+            +flats()
 
 mixin main_slider(company, flats)
     .main_slider.mainSlider.swiper-container
@@ -832,7 +993,6 @@ mixin main_slider(company, flats)
                             .f_cell._col_5
                                 button.btn_v3.btn_red.search_btn.text_center
                                     span найти (828)
-
 
                             .f_cell._col_4._collapsed
                                 .check_group._fix._mob
@@ -1176,7 +1336,7 @@ mixin scripts(contacts)
         script(src='js/jquery-ui-1.11.4.js' + '?t=' + time)
         //-script(src='js/jquery.fancybox.min.js' + '?t=' + time)
         script(src='js/select2.js' + '?t=' + time)
-        script(src='js/jquery.easy-autocomplete.js' + '?t=' + time)
+        //-script(src='js/jquery.easy-autocomplete.js' + '?t=' + time)
         script(src='js/nouislider.min.js' + '?t=' + time)
         script(src='js/swiper.min.js' + '?t=' + time)
         script(src='js/jquery.inputmask.bundle.js' + '?t=' + time)

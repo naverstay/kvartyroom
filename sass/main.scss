@@ -45,7 +45,7 @@ body {
 }
 
 .base {
-  padding-bottom: 12px;
+  //padding-bottom: 12px;
   flex: 1 0 auto;
 }
 
@@ -592,6 +592,20 @@ body {
   @extend %clearfix;
   margin-left: -10px;
 
+  .company_description & {
+    margin-top: 15px;
+
+    @include respond-to-min($resp_step_1) {
+      margin-bottom: -20px;
+    }
+
+    .btn_v2.search_tag {
+      padding: 5px 10px;
+      font-size: 13px;
+    }
+
+  }
+
   &._mod_1 {
     margin-top: -16px;
     padding-bottom: 16px;
@@ -732,6 +746,66 @@ body {
   }
 }
 
+.flat_thumb_slider {
+  width: 100%;
+  margin-bottom: 5px;
+
+  .slide {
+    @include transition_all(opacity .3s);
+    opacity: .5;
+    position: relative;
+    padding-bottom: 15px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.swiper-slide-active {
+      opacity: 1;
+      cursor: default;
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 3px;
+        background: $clr_orange;
+      }
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 0 60px;
+  }
+}
+
+.flat_slider {
+  width: 100%;
+  margin-bottom: 25px;
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 15px;
+  }
+
+  .slide {
+    text-align: center;
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 100%;
+    }
+  }
+}
+
 .company_tags {
   @extend %global_flex_block_row_wrap_flex_start_stretch;
   border-left: 1px solid #d2d2d2;
@@ -789,7 +863,6 @@ body {
       }
     }
   }
-
 }
 
 .company_description {
@@ -807,6 +880,10 @@ body {
   @include respond-to-min($resp_step_1) {
     float: left;
     width: 50%;
+
+    &._gallery {
+      @include flex_block(column nowrap, space-between, stretch);
+    }
 
     p {
       font-size: 14px;
@@ -866,7 +943,21 @@ body {
   }
 }
 
+.company_add_date {
+  color: #8d8d8d;
+
+  @include respond-to-max($resp_step_1) {
+    padding-top: 10px;
+    clear: both;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    float: right;
+  }
+}
+
 .company_type {
+  @extend %clearfix;
   font-size: 13px;
 }
 
@@ -1019,10 +1110,168 @@ body {
   letter-spacing: .025em;
   margin-bottom: 2px;
 
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   sup {
     font-size: .7em;
     display: inline-block;
     vertical-align: top;
+  }
+}
+
+.flat_price {
+  @extend %clearfix;
+  margin-bottom: 14px;
+  padding-top: 28px;
+}
+
+.flat_option_val {
+  color: #505050;
+  font: bold 21px $OpenSans;
+}
+
+.flat_controls {
+  padding-bottom: 15px;
+
+  p {
+    margin-top: 10px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    float: right;
+    width: 33.33%;
+    text-align: center;
+  }
+}
+
+.claim_link {
+  @include transition_all(color .3s);
+  text-decoration: none;
+  color: #8d8d8d;
+
+  &:hover {
+    color: $default_t_color;
+  }
+}
+
+.flat_contacts {
+  padding-bottom: 15px;
+
+  p {
+    margin-top: 10px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    float: left;
+    width: 65%;
+  }
+}
+
+.flat_phone {
+  color: $clr_orange;
+  font: 500 20px/40px $OpenSans;
+
+  @include respond-to-min($resp_step_2) {
+    font-size: 30px;
+  }
+}
+
+.flat_params {
+  @extend %clearfix;
+  clear: both;
+  border-top: 1px solid #d3d3d3;
+  padding-top: 10px;
+  margin-bottom: 25px;
+
+  .flat_unit_features {
+    p {
+      font-size: 13px;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding-top: 18px;
+
+    .flat_unit_features {
+      padding-top: 8px;
+    }
+
+    > li {
+      float: left;
+      width: 48%;
+      padding-right: 10px;
+    }
+  }
+}
+
+.flat_option_label {
+  color: #8d8d8d;
+  letter-spacing: .03em;
+}
+
+.flat_options {
+
+  li {
+    border-top: 1px solid #fff;
+    padding: 10px;
+    background: #ededed;
+    margin-bottom: 12px;
+
+    &:first-child {
+      background: #505050;
+
+      .flat_option_label,
+      .flat_option_val {
+        color: #fff;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    @include flex_block(row wrap, flex-start, stretch);
+
+    li {
+      padding: 20px 10px 20px 20px;
+      width: 33.33%;
+      border-left: 1px solid #fff;
+
+      sup {
+        font-size: .7em;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+}
+
+.flat_price_val {
+  font: 500 20px/32px $OpenSans;
+  color: #505050;
+  padding-right: 10px;
+  float: left;
+
+  @include respond-to-min($resp_step_1) {
+    font-size: 30px;
+    padding-right: 20px;
+  }
+}
+
+.price_currency {
+  float: left;
+
+  li {
+    float: left;
+    padding-right: 8px;
   }
 }
 
