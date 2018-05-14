@@ -9,7 +9,7 @@ mixin dev_head(page_title)
         |
         | <!-- saved from url=(0014)about:internet -->
         meta(charset='utf-8')
-        meta(name='viewport', content="width=device-width, initial-scale=1.0")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
         meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
         meta(name="apple-mobile-web-app-capable", content="yes")
         meta(name="format-detection", content="telephone=no")
@@ -207,7 +207,7 @@ mixin section_flats()
 
                                     +flat_features(1)
 
-                    .pagination_block
+                    .pagination_block._flats
                         a.pagination_link._prev(href='#')
                             span.mob_hidden В начало
                         a.pagination_link._next(href='#')
@@ -366,7 +366,7 @@ mixin search_results(company, flat)
                                                     span 3КК (от 78 м2):
                                                     span от 11 472 000 руб
 
-                    .pagination_block
+                    .pagination_block._flats
                         a.pagination_link._prev(href='#')
                             span.mob_hidden В начало
                         a.pagination_link._next(href='#')
@@ -390,22 +390,26 @@ mixin section_flat()
 
             .company_unit._wide
                 .company_description._gallery
-                    .text_center
+                    input#flat_block.hide(type='radio' checked name='flat_view')
+                    input#flat_map.hide(type='radio' name='flat_view')
+
+                    #control_section.text_center
                         ul.view_switcher
-                            li: label.check_v1
-                                input.hide(type='radio' checked name='flat_view')
+                            li: label.check_v1(for='flat_block')
                                 span.check_text Фото
-                            li: label.check_v1
-                                input.hide(type='radio' name='flat_view')
+                            li: label.check_v1(for='flat_map')
                                 span.check_text Карта
 
-                    .flat_slider: .swiper-container.flatSlider
+                    #map_section.description_map
+                        #ymap.map_block
+
+                    .flat_slider.flat_view: .swiper-container.flatSlider
                         .swiper-wrapper
                             +loop_while(8)
                                 .slide.swiper-slide
                                     img(src='i/flat_plan.png')
 
-                    .flat_thumb_slider: .swiper-container.flatThumbSlider
+                    .flat_thumb_slider.flat_view: .swiper-container.flatThumbSlider
                         .swiper-wrapper
                             +loop_while(8)
                                 .slide.swiper-slide
@@ -548,7 +552,7 @@ mixin section_company()
 
                         li.col_2
                             span Телефон:
-                            p +7 (495) 104-37-47
+                            p._wnw +7 (495) 104-37-47
 
                         li.col_3
                             span Сайт:
@@ -707,21 +711,32 @@ mixin section_map()
 
 mixin section_newbe(company)
     .section._gray
-        .section_inner
+        - if (company)
+            input#flat_block.hide(type='radio'  name='flats_view')
+            input#flat_map.hide(type='radio' checked name='flats_view')
+        #control_section.section_inner
             - if (company)
                 .section_title
                     h2.fl Новостройки компании «Level Group»
                     ul.view_switcher
-                        li: label.check_v1
-                            input.hide(type='radio' checked name='newbe_view')
+                        li: label.check_v1(for='flat_block')
                             span.check_text Списком
-                        li: label.check_v1
-                            input.hide(type='radio' name='newbe_view')
+                        li: label.check_v1(for='flat_map')
                             span.check_text На карте
 
             - else
                 h2.section_title.text_center Новостройки
+        - if (company)
+            #map_section
+                .section._map
+                    #ymap.map_block
+                .section._map_filter._gray
+                    .section_inner.clearfix
+                        a.wide_map_link.openMetroPopup(href='#')
+                            span Смотреть на большой карте
+                        span._let_-025 Объектов на карте: 828
 
+        #flat_section.section_inner
             ul.flat_list
                 +loop_while(2)
                     li
@@ -960,13 +975,13 @@ mixin main_slider(company, flats)
                             .f_cell._col_4
                                 .check_group
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_region')
+                                        input.hide(type='checkbox' name='filter_region')
                                         span.check_text Москва
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_region')
+                                        input.hide(type='checkbox' name='filter_region')
                                         span.check_text МО
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_region')
+                                        input.hide(type='checkbox' name='filter_region')
                                         span.check_text Новая Москва
 
                             .f_cell._col_4
@@ -983,9 +998,9 @@ mixin main_slider(company, flats)
 
                                     .toddler_v1._single_
                                         .filterToddler(data-format='fixed' data-suffix_1=' млн' data-show-value='true' data-single_='true' data-min=1000000 data-max=50000000)
-                                    .toddler_range.hide
-                                        .fl 100 000
-                                        .fr 2 500 000
+                                    .toddler_range
+                                        .fl.min 100 000
+                                        .fr.max 2 500 000
 
                             .f_cell._col_4
                                 a.filter_collapse_btn.filterCollapseBtn(href='#') Показать все параметры
@@ -997,19 +1012,19 @@ mixin main_slider(company, flats)
                             .f_cell._col_4._collapsed
                                 .check_group._fix._mob
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_rooms')
+                                        input.hide(type='checkbox' name='filter_rooms')
                                         span.check_text СТ
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_rooms')
+                                        input.hide(type='checkbox' name='filter_rooms')
                                         span.check_text 1
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_rooms')
+                                        input.hide(type='checkbox' name='filter_rooms')
                                         span.check_text 2
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_rooms')
+                                        input.hide(type='checkbox' name='filter_rooms')
                                         span.check_text 3
                                     label.check_v1
-                                        input.hide(type='radio' name='filter_rooms')
+                                        input.hide(type='checkbox' name='filter_rooms')
                                         span.check_text 4
 
                             .f_cell._col_4._collapsed
@@ -1021,10 +1036,10 @@ mixin main_slider(company, flats)
                                             span.start.btn_v2.filter_btn: input.f_input.input_v3.val(data-inputmask="'alias': 'decimal', 'groupSeparator': ' ', 'digitsOptional': true, 'autoGroup': true, 'rightAlign': false ")
 
                                     .toddler_v1._single_
-                                        .filterToddler(data-format='place' data-suffix_1='<sup>2</sup>' data-show-value='true' data-single_='true' data-min=10 data-max=500)
-                                    .toddler_range.hide
-                                        .fl 100 000
-                                        .fr 2 500 000
+                                        .filterToddler(data-format='place' data-suffix_1='м<sup>2</sup>' data-show-value='true' data-single_='true' data-min=10 data-max=500)
+                                    .toddler_range
+                                        .fl.min 100 000
+                                        .fr.max 2 500 000
 
                             .f_cell._col_4.select_v2._collapsed
                                 select.select2(data-placeholder='Тип дома')
@@ -1037,6 +1052,13 @@ mixin main_slider(company, flats)
                                     option
                                     option Комплекс 1
                                     option Комплекс 2
+                                    option Комплекс 3
+                                    option Комплекс 3
+                                    option Комплекс 3
+                                    option Комплекс 3
+                                    option Комплекс 3
+                                    option Комплекс 3
+                                    option Комплекс 3
                                     option Комплекс 3
                             .f_cell._col_4.select_v2._collapsed
                                 select.select2(data-placeholder='Компания')

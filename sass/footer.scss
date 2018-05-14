@@ -13,6 +13,10 @@
 
   &.action_col {
     text-align: center;
+
+    @include respond-to-max($resp_step_1) {
+      margin-bottom: 0;
+    }
   }
 
   @include respond-to-min($resp_step_1) {

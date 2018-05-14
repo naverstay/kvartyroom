@@ -5,6 +5,10 @@ var autoCompleteOptions = {};
 $(function ($) {
     $body = $('body');
 
+    if (!window.list) window.list = false;
+
+    console.log(window.list);
+
     $body.delegate('.filterCollapseBtn', 'click', function () {
         $(this).closest('.search_form').toggleClass('filter_opened');
         return false;
@@ -191,6 +195,8 @@ function init() {
         searchControlProvider: 'yandex#search'
     });
 
+    myMap.behaviors.disable('scrollZoom');
+
     objectManager = new ymaps.ObjectManager({
         // Чтобы метки начали кластеризоваться, выставляем опцию.
         clusterize: true,
@@ -218,6 +224,7 @@ function init() {
 }
 
 function downloadContent(geoObjects, id, isCluster) {
+    console.log(list, id);
     // Создадим массив меток, для которых данные ещё не загружены.
     var array = geoObjects.filter(function (geoObject) {
             return geoObject.properties.balloonContent === 'идет загрузка...' ||
@@ -490,16 +497,16 @@ function initToddlers() {
                 plural_2 = '',
                 arr = [];
 
-            if (show_value) {
-                var tdlr = $(this.target);
-
-                tdlr.find('.noUi-handle').each(function (ind) {
-                    var val = values[ind];
-                    $(this).html('<span class="toddler_tip">' +
-                        tipFormat(val, format) +
-                        suffix_1 + '</span>');
-                });
-            }
+            //if (show_value) {
+            //    var tdlr = $(this.target);
+            //
+            //    tdlr.find('.noUi-handle').each(function (ind) {
+            //        var val = values[ind];
+            //        $(this).html('<span class="toddler_tip">' +
+            //            tipFormat(val, format) +
+            //            suffix_1 + '</span>');
+            //    });
+            //}
 
             if (plural != void 0) {
                 arr = plural.split(',');
@@ -540,16 +547,19 @@ function initToddlers() {
                 });
             }
 
-            filter.find('.min').html(
-                (format ? ('money' == format ? moneyFormat(val_1.toString()) : val_1) : val_1) + ' ' +
-                plural_1
-            );
+            if (show_value) {
+                filter.find('.min').html(
+                    '<span class="toddler_tip">' +
+                    tipFormat(values[0], format) +
+                    suffix_1 + '</span>'
+                );
 
-            filter.find('.max').html(
-                (format ? ('money' == format ? moneyFormat(val_2.toString()) : val_2) : val_2) + ' ' +
-                plural_2
-            );
-
+                filter.find('.max').html(
+                    '<span class="toddler_tip">' +
+                    tipFormat(values[1], format) +
+                    suffix_1 + '</span>'
+                );
+            }
         });
 
         filter.find('.start input.val').on('keyup keypress change update', function () {

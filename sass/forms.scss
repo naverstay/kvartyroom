@@ -242,6 +242,7 @@
   }
 
   .check_text {
+    cursor: pointer;
     text-align: center;
     border: 1px solid #d2d2d2;
     //background: #fff;
@@ -259,6 +260,7 @@
 
 }
 
+.flat_view,
 #flat_section,
 #map_section {
   display: none;
@@ -288,7 +290,10 @@
 
       .flat_features {
         display: block;
-        margin-left: 182px;
+
+        @include respond-to-min($resp_step_1) {
+          margin-left: 182px;
+        }
       }
 
       .flat_unit_features {
@@ -393,6 +398,7 @@
     }
   }
 
+  ~ .flat_view,
   ~ #flat_section {
     display: block;
   }
@@ -833,8 +839,23 @@
   line-height: 20px;
 }
 
+.toddler_tip {
+  white-space: nowrap;
+  font-size: 11px;
+
+  sup {
+    font-size: .7em;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
 .toddler_v1 {
   position: relative;
+
+  @include respond-to-max($resp_step_1) {
+    padding: 0 30px;
+  }
 
   .noUi-base {
     cursor: pointer;
@@ -845,14 +866,6 @@
     @extend %hor_centr;
     position: absolute;
     bottom: 100%;
-    white-space: nowrap;
-    font-size: 11px;
-
-    sup {
-      font-size: .7em;
-      display: inline-block;
-      vertical-align: top;
-    }
   }
 
   .noUi-connect {
@@ -1051,10 +1064,18 @@
   }
 }
 
+.filterBlock {
+  position: relative;
+}
+
 .toddler_range {
   @extend %clearfix;
   font-size: 11px;
   line-height: 1;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -2px;
 
   .max {
     float: right;

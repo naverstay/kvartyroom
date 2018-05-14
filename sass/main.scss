@@ -91,6 +91,10 @@ body {
   max-width: 1300px;
   position: relative;
 
+  @include respond-to-max($resp_step_1) {
+    overflow: visible;
+  }
+
   .slide {
     position: relative;
   }
@@ -490,6 +494,11 @@ body {
 
 .text_block {
   padding-top: 12px;
+  padding-bottom: 10px;
+
+  @include respond-to-min($resp_step_1) {
+    padding-bottom: 20px;
+  }
 
   .section_title {
     margin-bottom: 18px;
@@ -505,20 +514,6 @@ body {
   }
 }
 
-.news_list {
-  .section_title {
-    margin-bottom: 10px;
-  }
-
-  @include respond-to-min($resp_step_1) {
-    padding-top: 20px;
-
-    &._short {
-      padding-top: 0;
-    }
-  }
-}
-
 .news_list,
 .flat_list {
   @extend %global_flex_block_row_wrap_flex_start_stretch;
@@ -530,11 +525,12 @@ body {
     flex: 1 0 auto;
     max-width: 100%;
 
-    .content_block & {
-      margin-bottom: 30px;
-    }
-
     @include respond-to-max($resp_step_1) {
+
+      .content_block & {
+        margin-bottom: 30px;
+      }
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -558,6 +554,26 @@ body {
         width: 33.3333%;
         max-width: 33.3333%;
       }
+    }
+  }
+}
+
+.news_list {
+  .section_title {
+    margin-bottom: 10px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding-top: 20px;
+
+    &._short {
+      padding-top: 0;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    > li {
+      margin-bottom: 40px;
     }
   }
 }
@@ -787,6 +803,10 @@ body {
   }
 }
 
+.flat_slider_holder {
+  flex: 1 0 auto;
+}
+
 .flat_slider {
   width: 100%;
   margin-bottom: 25px;
@@ -830,7 +850,6 @@ body {
   padding: 0 20px 15px;
 
   &._wide {
-    @extend %clearfix;
     @extend %global_flex_block_row_wrap_flex_start_stretch;
     position: relative;
     padding: 0;
@@ -863,6 +882,13 @@ body {
       }
     }
   }
+}
+
+.description_map {
+  position: relative;
+  min-height: 320px;
+  flex: 1 0 auto;
+  border: 1px solid #d3d3d3;
 }
 
 .company_description {
@@ -1299,14 +1325,26 @@ body {
 
   .col_1 {
     width: 38%;
+
+    @include respond-to-max($resp_step_1) {
+      width: 100%;
+    }
   }
 
   .col_2 {
     width: 38%;
+
+    @include respond-to-max($resp_step_1) {
+      width: 50%;
+    }
   }
 
   .col_3 {
     width: 24%;
+
+    @include respond-to-max($resp_step_1) {
+      width: 50%;
+    }
   }
 
   .col_4 {
@@ -1484,4 +1522,8 @@ body {
 
 ._let_-025 {
   letter-spacing: -.025em;
+}
+
+._wnw {
+  white-space: nowrap;
 }

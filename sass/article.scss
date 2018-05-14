@@ -3,6 +3,10 @@
   padding: 0 25px;
   margin: 32px 0 25px;
 
+  &._flats {
+    margin-top: 12px;
+  }
+
   @include respond-to-min($resp_step_1) {
     padding: 0 100px;
   }
@@ -114,6 +118,6 @@
   }
 
   @include respond-to-min($resp_step_1) {
-    padding-bottom: 20px;
+    padding-bottom: 5px;
   }
 }
