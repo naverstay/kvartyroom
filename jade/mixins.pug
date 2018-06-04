@@ -927,18 +927,17 @@ mixin main_slider(company, flats)
             +loop_while(4)
                 .slide.swiper-slide
                     img(src='i/main_slide.jpg')
-                    //-.slide_content
+                    .slide_content
+                        .section_inner
+                            .slide_title
+                                - if (!company && !flats)
+                                    p #[a._link(href='#') #[span 2834]] квартиры в #[a._link(href='#') #[span 372]] новостройках<br> от #[a._link(href='#') #[span 155]] застройщиков
+    
+                            .slide_info_holder: .slide_info
+                                p._fz_24._ff_mn #[a._link(href='#') #[span Дома возведены. Ключи в день сделки!]]
+                                p._fz_18._ff_os._let_025 #[a._link(href='#') #[span ЖК “Golden City” от Glorax Development]]
 
         .main_slider_controls
-            .section_inner
-                .slide_title
-                    - if (!company && !flats)
-                        p #[a._link(href='#') #[span 2834]] квартиры в #[a._link(href='#') #[span 372]] новостройках<br> от #[a._link(href='#') #[span 155]] застройщиков
-
-                .slide_info_holder: .slide_info
-                    p._fz_24._ff_mn #[a._link(href='#') #[span Дома возведены. Ключи в день сделки!]]
-                    p._fz_18._ff_os._let_025 #[a._link(href='#') #[span ЖК “Golden City” от Glorax Development]]
-
             .swiper-pagination.mainPagination
             .main_slider_prev.slidePrev
             .main_slider_next.slideNext
@@ -1366,4 +1365,3 @@ mixin scripts(contacts)
 
     - if (contacts)
         script(src='js/contacts' + (prod ? '.min' : '') + '.js?t=' + time)
-

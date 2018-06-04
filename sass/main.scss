@@ -97,6 +97,13 @@ body {
 
   .slide {
     position: relative;
+
+    .section_inner {
+      position: relative;
+      height: 100%;
+      max-width: 980px;
+      padding: 0;
+    }
   }
 
   .slide_content {
@@ -235,19 +242,16 @@ body {
   top: 0;
   z-index: 1;
   padding: 0 15px;
-  //pointer-events: none;
+  pointer-events: none;
+  
+  > * {
+    pointer-events: all;
+  }
 
   @include respond-to-min($resp_step_1) {
     padding: 0 90px;
   }
-
-  .section_inner {
-    position: relative;
-    height: 100%;
-    max-width: 980px;
-    padding: 0;
-  }
-
+  
   .swiper-pagination {
     right: 10px;
     bottom: 10px;
